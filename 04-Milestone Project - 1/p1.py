@@ -1,39 +1,20 @@
-class apple:
-    def __init__(self, num) -> None:
-        super().__init__()
-        self.num = num
 
-    def add(self, num):
-        self.num += num
-
-    def __str__(self) -> str:
-        return str(self.num)
-
-    def test(self, x):
-        print(x(self.num))
-
-
-class Animal:
-    def __init__(self):
-        print("Animal created")
-
-    def whoAmI(self):
-        print("Animal")
-
-
-class Dog(Animal):
-    def __init__(self):
-        super().__init__()
-        print("Dog created")
-
-    def whoAmI(self):
-        print("Dog")
-
+def display_chess(board):
+    for i in range(19):
+        print()
+    for line in board:
+        print(line[0] + line[1] + line[2])
 
 def main():
-    a_dog = Dog()
-    a_dog.whoAmI()
-
+    board = [['_','_','_'],['_','_','_'],['_','_','_']]
+    for i in range(9):
+        input_text = input('input your position:\n')
+        x, y = input_text.split(',')
+        if i%2 == 0:
+            board[int(x)][int(y)] = 'X'
+        else:
+            board[int(x)][int(y)] = 'O'
+        display_chess(board)
 
 if __name__ == '__main__':
     main()
